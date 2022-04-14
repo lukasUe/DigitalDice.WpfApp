@@ -25,7 +25,7 @@ namespace DigitalDice.WpfApp
         const int m = 7, n = 5;
         Rectangle[,] cells = new Rectangle[m,n];
 
-        Random random = new();
+        Random random = new(DateTime.Now.Millisecond);
 
         public MainWindow()
         {
@@ -34,7 +34,34 @@ namespace DigitalDice.WpfApp
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            if(on)
+            {
+                int result = random.Next(1, 7);
 
+                ClearMatrix();
+
+                switch(result)
+                {
+                    case 1:
+                        PrintOne();
+                        break;
+                    case 2:
+                        PrintTwo();
+                        break;
+                    case 3:
+                        PrintThree();
+                        break;
+                    case 4:
+                        PrintFour();
+                        break;
+                    case 5:
+                        PrintFive();
+                        break;
+                    case 6:
+                        PrintSix(); 
+                        break;
+                }
+            }
 
         }
 
@@ -53,9 +80,9 @@ namespace DigitalDice.WpfApp
                 for (int j = 0; j < n; j++)
                 {
                     Rectangle cell = new();
-                    cell.Height = Matrix.ActualHeight / m;
-                    cell.Width = Matrix.ActualWidth / n;
-                    cell.Fill = Brushes.Red;
+                    cell.Height = Matrix.ActualHeight / m - 2.0;
+                    cell.Width = Matrix.ActualWidth / n - 2.0;
+                    cell.Fill = Brushes.Gray;
 
                     Matrix.Children.Add(cell);
 
@@ -81,5 +108,100 @@ namespace DigitalDice.WpfApp
 
             on = false;
         }
+
+        private void ClearMatrix()
+        {
+            for(int i = 0;i < m;i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    cells[i, j].Fill = Brushes.Gray;
+                }
+            }
+        }
+
+        private void PrintOne()
+        {
+            cells[1, 2].Fill = Brushes.DarkGreen;
+            cells[1, 3].Fill = Brushes.DarkGreen;
+            cells[2, 3].Fill = Brushes.DarkGreen;
+            cells[3, 3].Fill = Brushes.DarkGreen;
+            cells[4, 3].Fill = Brushes.DarkGreen;
+            cells[5, 3].Fill = Brushes.DarkGreen;
+        }
+        private void PrintTwo()
+        {
+            cells[1, 1].Fill = Brushes.DarkGreen;
+            cells[1, 2].Fill = Brushes.DarkGreen;
+            cells[1, 3].Fill = Brushes.DarkGreen;
+            cells[2, 3].Fill = Brushes.DarkGreen;
+            cells[3, 1].Fill = Brushes.DarkGreen;
+            cells[3, 2].Fill = Brushes.DarkGreen;
+            cells[3, 3].Fill = Brushes.DarkGreen;
+            cells[4, 1].Fill = Brushes.DarkGreen;
+            cells[5, 1].Fill = Brushes.DarkGreen;
+            cells[5, 2].Fill = Brushes.DarkGreen;
+            cells[5, 3].Fill = Brushes.DarkGreen;
+        }
+
+        private void PrintThree()
+        {
+            cells[1, 1].Fill = Brushes.DarkGreen;
+            cells[1, 2].Fill = Brushes.DarkGreen;
+            cells[1, 3].Fill = Brushes.DarkGreen;
+            cells[2, 3].Fill = Brushes.DarkGreen;
+            cells[3, 1].Fill = Brushes.DarkGreen;
+            cells[3, 2].Fill = Brushes.DarkGreen;
+            cells[3, 3].Fill = Brushes.DarkGreen;
+            cells[4, 3].Fill = Brushes.DarkGreen;
+            cells[5, 1].Fill = Brushes.DarkGreen;
+            cells[5, 2].Fill = Brushes.DarkGreen;
+            cells[5, 3].Fill = Brushes.DarkGreen;
+        }
+
+        private void PrintFour()
+        {
+            cells[1, 1].Fill = Brushes.DarkGreen;
+            cells[2, 1].Fill = Brushes.DarkGreen;
+            cells[2, 3].Fill = Brushes.DarkGreen;
+            cells[3, 1].Fill = Brushes.DarkGreen;
+            cells[3, 2].Fill = Brushes.DarkGreen;
+            cells[3, 3].Fill = Brushes.DarkGreen;
+            cells[4, 3].Fill = Brushes.DarkGreen;
+            cells[5, 3].Fill = Brushes.DarkGreen;
+        }
+
+        private void PrintFive()
+        {
+            cells[1, 1].Fill = Brushes.DarkGreen;
+            cells[1, 2].Fill = Brushes.DarkGreen;
+            cells[1, 3].Fill = Brushes.DarkGreen;
+            cells[2, 1].Fill = Brushes.DarkGreen;
+            cells[3, 1].Fill = Brushes.DarkGreen;
+            cells[3, 2].Fill = Brushes.DarkGreen;
+            cells[3, 3].Fill = Brushes.DarkGreen;
+            cells[4, 3].Fill = Brushes.DarkGreen;
+            cells[5, 1].Fill = Brushes.DarkGreen;
+            cells[5, 2].Fill = Brushes.DarkGreen;
+            cells[5, 3].Fill = Brushes.DarkGreen;
+        }
+
+        private void PrintSix()
+        {
+            cells[1, 1].Fill = Brushes.DarkGreen;
+            cells[1, 2].Fill = Brushes.DarkGreen;
+            cells[1, 3].Fill = Brushes.DarkGreen;
+            cells[2, 1].Fill = Brushes.DarkGreen;
+            cells[3, 1].Fill = Brushes.DarkGreen;
+            cells[3, 2].Fill = Brushes.DarkGreen;
+            cells[3, 3].Fill = Brushes.DarkGreen;
+            cells[4, 1].Fill = Brushes.DarkGreen;
+            cells[4, 3].Fill = Brushes.DarkGreen;
+            cells[5, 1].Fill = Brushes.DarkGreen;
+            cells[5, 2].Fill = Brushes.DarkGreen;
+            cells[5, 3].Fill = Brushes.DarkGreen;
+
+        }
     }
+
 }
