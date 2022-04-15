@@ -129,6 +129,7 @@ namespace DigitalDice.WpfApp
             cells[4, 3].Fill = Brushes.DarkGreen;
             cells[5, 3].Fill = Brushes.DarkGreen;
         }
+
         private void PrintTwo()
         {
             cells[1, 1].Fill = Brushes.DarkGreen;
@@ -162,6 +163,7 @@ namespace DigitalDice.WpfApp
         private void PrintFour()
         {
             cells[1, 1].Fill = Brushes.DarkGreen;
+            cells[1, 3].Fill = Brushes.DarkGreen;
             cells[2, 1].Fill = Brushes.DarkGreen;
             cells[2, 3].Fill = Brushes.DarkGreen;
             cells[3, 1].Fill = Brushes.DarkGreen;
