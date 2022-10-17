@@ -1,6 +1,6 @@
 ﻿## Digital Dice
 
-Der digitale Würfel soll per "Button" eine Digitale Zahle von 1 bis 6 ausgeben.
+Der digitale Würfel soll per "Button" eine Digitale Zahl von 1 bis 6 ausgeben.
 
 Diese Zufallszahl soll mit der statischen Klasse Random realisiert werden.
 
